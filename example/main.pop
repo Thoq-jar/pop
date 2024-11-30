@@ -1,0 +1,9 @@
+#!/usr/bin/env pop
+
+-mod(main).
+-export([main/0]).
+
+main() ->
+    io:print("Hello, Pop!~n"),
+    Result = os:exec("ls"),
+    io:print("~s~n", [Result]).
