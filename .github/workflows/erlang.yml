@@ -1,0 +1,45 @@
+name: Erlang CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: erlang:25.3
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Cache rebar3 dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/rebar3
+          _build
+        key: ${{ runner.os }}-rebar3-${{ hashFiles('rebar.config') }}
+        restore-keys: |
+          ${{ runner.os }}-rebar3-
+
+    - name: Install rebar3
+      run: |
+        wget https://s3.amazonaws.com/rebar3/rebar3
+        chmod +x rebar3
+        ./rebar3 local install
+        
+    - name: Compile
+      run: make
+      
+    - name: Run tests
+      run: make test
+
+    - name: Run example
+      run: |
+        ./dist/pop example/main.pop
