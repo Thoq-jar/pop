@@ -1,4 +1,4 @@
-# Pop
+# Pop!
 
 A simple Erlang-like language that compiles to Erlang.
 Its also a scripting language that compiles to Erlang on the fly.
