@@ -1,8 +1,8 @@
 #!/bin/bash
 
+rebar3 compile
 mkdir -p dist
-erlc -o dist src/*.erl
-BEAM_CONTENT=$(base64 dist/compiler.beam)
+BEAM_CONTENT=$(base64 _build/default/lib/pop/ebin/compiler.beam)
 
 cat > dist/pop << EOF
 #!/bin/bash
@@ -35,4 +35,3 @@ rm -rf "\$TEMP_DIR"
 EOF
 
 chmod +x dist/pop
-rm dist/compiler.beam

@@ -1,5 +1,7 @@
 dist/*
-
+_build/
+rebar3.crashdump
+.rebar3/
 example/*.beam
 src/*.beam
 *.beam

@@ -1,5 +1,10 @@
 -module(compiler).
--export([compile_and_run/1]).
+-export([
+    compile_and_run/1,
+    strip_shebang/1,
+    transformations/0,
+    apply_transformations/2
+]).
 
 transformations() ->
     [
@@ -42,5 +47,5 @@ strip_shebang(Code) ->
 apply_transformations(Code, []) ->
     Code;
 apply_transformations(Code, [{From, To}|Rest]) ->
-    TransformedCode = string:replace(Code, From, To, all),
+    TransformedCode = lists:flatten(string:replace(Code, From, To, all)),
     apply_transformations(TransformedCode, Rest).
