@@ -1,8 +1,8 @@
 # Pop!
 
-A simple Erlang-like language that compiles to Erlang.
-Its also a scripting language that compiles to Erlang on the fly.
-This is a joke language that I made for fun- you probably shouldn't use it.
+A simple Erlang-like dialect that compiles to Erlang.
+It also supports scripting that compiles to Erlang on the fly.
+This is a toy dialect that I made for fun- you probably shouldn't use it.
 
 ## Usage
 
