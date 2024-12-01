@@ -12,12 +12,12 @@ make
 ```
 
 ## Syntax
-| Pop | Erlang Syntax |
-|-----|--------------|
-| {"main()", "main()"} | `main().` |
-| {"-mod(", "-module("} | `-module(ModuleName).` |
-| {"-export(", "-export("} | `-export([Function1/Arity1, Function2/Arity2]).` |
-| {"io:", "io:"} | `io:format("Message").` |
-| {"print(", "format("} | `io:format("~s ~n", [String]).` |
-| {"exec(", "cmd("} | `os:cmd("Command").` |
-| {"os:", "os:"} | `os:getenv("EnvironmentVariable").` |
+| Pop Syntax        | Erlang Syntax      |
+|-------------------|--------------------|
+| `main()`          | `main()`           |
+| `-mod()`          | `-module()`        |
+| `-export()`       | `-export()`        |
+| `io:`             | `io:`              |
+| `print()`         | `format()`         |
+| `exec()`          | `cmd()`            |
+| `os:`             | `os:`              |
