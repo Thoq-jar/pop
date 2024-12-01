@@ -7,6 +7,6 @@ This is a toy dialect that I made for fun- you probably shouldn't use it.
 ## Usage
 
 ```bash
-./build.sh
+make
 ./pop <filename>
 ```
