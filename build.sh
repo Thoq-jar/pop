@@ -26,10 +26,6 @@ if [ ! -f "\$FILE" ]; then
     echo "Error: File \$FILE does not exist"
     exit 1
 fi
-if [[ ! \$FILE =~ \.pop\$ ]]; then
-    echo "Error: File must have .pop extension"
-    exit 1
-fi
 erl -noshell -pa "\$TEMP_DIR" -eval "compiler:compile_and_run(\"\$FILE\"), init:stop()."
 rm -rf "\$TEMP_DIR"
 EOF
